@@ -12,4 +12,5 @@ This thing runs as a Kubernetes cron job and truncates all RSS feeds in my Feedb
 A few notes:
 
 * You can do whatever you want with this code. It’s code. If you run it, and something terrible happens… sorry. I can at least promise it doesn’t have a Bitcoin miner (though given the state of NPM modules, maybe I shouldn’t make that promise).
+* It needs a .env file in the root with your Feedbin username/password or env variables set. See the .env.test file for an example.
 * Thanks to Feedbin for having an [awesome API](https://github.com/feedbin/feedbin-api).
