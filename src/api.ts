@@ -11,10 +11,11 @@ type FeedTaggings = {
 const parseTaggings = makeApiParser<FeedTaggings>({
   elements: {
     properties: {
-      id: { type: "int32" },
-      feed_id: { type: "int32" },
+      id: { type: "float64" },
+      feed_id: { type: "float64" },
       name: { type: "string" },
     },
+    additionalProperties: true
   },
 });
 
@@ -38,10 +39,11 @@ type EntryJSON = {
 const parseEntry = makeApiParser<EntryJSON>({
   elements: {
     properties: {
-      id: { type: "int32" },
+      id: { type: "float64" },
       title: { type: "string" },
       created_at: { type: "string" },
     },
+    additionalProperties: true
   },
 });
 

@@ -1,5 +1,6 @@
 import Ajv, { JTDSchemaType } from "ajv/dist/jtd";
 import fetch, { RequestInfo, RequestInit, Response } from "node-fetch";
+import { logger } from './logger';
 import headers from "./api-headers";
 
 // Handles out of bounds status codes on a fetch call.
@@ -23,7 +24,8 @@ export function makeApiParser<T>(
     const text = await fetchRes.text();
     const parsed = parser(text);
     if (!parsed) {
-      throw new Error(`Error parsing from ${fetchRes.url}!`);
+      logger.error(`Error parsing: ${parser.message} at ${parser.position}`);
+      throw new Error(`Error parsing from ${fetchRes.url}`);
     }
     return parsed;
   };
